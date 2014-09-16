@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://aprell.github.io/atom.xml" rel="self"/>
   <link href="http://aprell.github.io/"/>
-  <updated>2014-09-16T14:15:06+02:00</updated>
+  <updated>2014-09-16T18:46:06+02:00</updated>
   <id>http://aprell.github.io/</id>
   <author>
     <name><![CDATA[Andreas Prell]]></name>
@@ -12,5 +12,14 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hello Blog]]></title>
+    <link href="http://aprell.github.io/blog/2014/09/16/hello-blog/"/>
+    <updated>2014-09-16T16:43:40+02:00</updated>
+    <id>http://aprell.github.io/blog/2014/09/16/hello-blog</id>
+    <content type="html"><![CDATA[<p>Random entries coming soon</p>
+]]></content>
+  </entry>
   
 </feed>
