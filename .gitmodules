@@ -1,0 +1,3 @@
+[submodule ".themes/SmallFox"]
+	path = .themes/SmallFox
+	url = https://github.com/lmm/SmallFox
