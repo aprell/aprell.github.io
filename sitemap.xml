@@ -4,17 +4,24 @@
   
   
   <url>
+    <loc>http://aprell.github.io/</loc>
+    <lastmod>2014-09-16T14:15:06+02:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  
+  <url>
     <loc>http://aprell.github.io/blog/archives/</loc>
-    <lastmod>2014-09-16T02:31:49+02:00</lastmod>
+    <lastmod>2014-09-16T14:15:06+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
-    <loc>http://aprell.github.io/</loc>
-    <lastmod>2014-09-16T02:31:49+02:00</lastmod>
+    <loc>http://aprell.github.io/posts/</loc>
+    <lastmod>2014-09-16T14:15:06+02:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <priority>0.7</priority>
   </url>
   
   
