@@ -4,7 +4,7 @@ single: true
 ---
 
 <a href="/" class="home-icon grow">
-  <p>LM</p>
+  <p>↩</p>
 </a>
 
 <article role="article" class="full-single-article">
@@ -13,7 +13,7 @@ single: true
       <div class="col-md-8 col-md-offset-2">
         <h1>{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
         <div class="meta">
-          written {% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}
+          Posted {% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}
           {% include post/categories.html %}
         </div>
         {{ content }}
