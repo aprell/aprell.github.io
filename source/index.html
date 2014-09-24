@@ -14,7 +14,7 @@ layout: default
   <div class="article-list">
     <div class="container">
       {% for post in site.posts %}
-        {% assign content = post.content %}
+        {% assign content = post.excerpt %}
         <div class="row">
           <div class="col-md-offset-2 col-md-8">
             {% include article_listing.html %}
