@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://aprell.github.io/atom.xml" rel="self"/>
   <link href="http://aprell.github.io/"/>
-  <updated>2014-09-24T18:52:24+02:00</updated>
+  <updated>2014-10-03T23:30:05+02:00</updated>
   <id>http://aprell.github.io/</id>
   <author>
     <name><![CDATA[Andreas Prell]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Concurrency for Parallelism?]]></title>
+    <link href="http://aprell.github.io/blog/2014/10/03/concurrency-for-parallelism/"/>
+    <updated>2014-10-03T20:35:36+02:00</updated>
+    <id>http://aprell.github.io/blog/2014/10/03/concurrency-for-parallelism</id>
+    <content type="html"><![CDATA[<p>So, following up on the previous post, what is the difference between
+concurrent programming and parallel programming?</p>
+
+<!--more-->
+
+
+<p>In my view, concurrent programming is concerned with coordination, whereas
+parallel programming is concerned with efficiency. In a way, you could say
+parallel programming is about avoiding coordination to the extent possible for
+the sake of performance. It seems reasonable to assume that <a href="http://yosefk.com/blog/parallelism-and-concurrency-need-different-tools.html">concurrency and
+parallelism call for different tools</a>.</p>
+
+<p>Concurrent languages such as <a href="http://golang.org">Go</a> support parallelism
+basically out of the box: create a number of independent tasks and make sure
+they are scheduled by a pool of worker threads. Done in a few lines of code.
+Problem solved?</p>
+
+<p>I agree that a single set of concurrency constructs is too limiting for the
+kind of parallel programs we&rsquo;d want to write. Consider parallel loops, for
+example. Relatively straightforward to implement in Go, but <a href="http://www.golangpatterns.info/concurrency/parallel-for-loop">starting a
+goroutine for each iteration</a>?
+Hardly practical. This is not to say that goroutines and channels can&rsquo;t be
+used to implement parallel loops efficiently; they can be used, it&rsquo;s just more
+work. But programmers shouldn&rsquo;t need to worry about goroutines and channels
+when all they want to do is run some iterations of a loop in parallel.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Concurrency versus Parallelism]]></title>
