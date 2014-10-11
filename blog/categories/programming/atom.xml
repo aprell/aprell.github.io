@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | My Octopress Blog]]></title>
   <link href="http://aprell.github.io/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://aprell.github.io/"/>
-  <updated>2014-10-11T22:17:56+02:00</updated>
+  <updated>2014-10-11T22:27:25+02:00</updated>
   <id>http://aprell.github.io/</id>
   <author>
     <name><![CDATA[Andreas Prell]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Masterminds of Programming]]></title>
-    <link href="http://aprell.github.io/blog/2014/10/11/book-masterminds-of-programming/"/>
+    <link href="http://aprell.github.io/blog/2014/10/11/masterminds-of-programming/"/>
     <updated>2014-10-11T17:19:43+02:00</updated>
-    <id>http://aprell.github.io/blog/2014/10/11/book-masterminds-of-programming</id>
+    <id>http://aprell.github.io/blog/2014/10/11/masterminds-of-programming</id>
     <content type="html"><![CDATA[<p>A few interesting and amusing quotes from the book <a href="http://shop.oreilly.com/product/9780596515171.do">Masterminds of
 Programming</a>:</p>
 
