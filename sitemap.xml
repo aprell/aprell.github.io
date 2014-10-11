@@ -3,6 +3,14 @@
   
   
   <url>
+    <loc>http://aprell.github.io/blog/2014/10/11/book-masterminds-of-programming/</loc>
+    
+    <lastmod>2014-10-11T17:19:43+02:00</lastmod>
+    
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://aprell.github.io/blog/2014/10/03/concurrency-for-parallelism/</loc>
     
     <lastmod>2014-10-03T20:35:36+02:00</lastmod>
@@ -29,21 +37,21 @@
   
   <url>
     <loc>http://aprell.github.io/</loc>
-    <lastmod>2014-10-04T14:52:22+02:00</lastmod>
+    <lastmod>2014-10-11T22:17:56+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://aprell.github.io/blog/archives/</loc>
-    <lastmod>2014-10-04T14:52:22+02:00</lastmod>
+    <lastmod>2014-10-11T22:17:56+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://aprell.github.io/posts/</loc>
-    <lastmod>2014-10-04T14:52:22+02:00</lastmod>
+    <lastmod>2014-10-11T22:17:56+02:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

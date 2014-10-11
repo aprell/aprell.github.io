@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: books | My Octopress Blog]]></title>
+  <link href="http://aprell.github.io/blog/categories/books/atom.xml" rel="self"/>
+  <link href="http://aprell.github.io/"/>
+  <updated>2014-10-11T22:17:56+02:00</updated>
+  <id>http://aprell.github.io/</id>
+  <author>
+    <name><![CDATA[Andreas Prell]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Masterminds of Programming]]></title>
+    <link href="http://aprell.github.io/blog/2014/10/11/book-masterminds-of-programming/"/>
+    <updated>2014-10-11T17:19:43+02:00</updated>
+    <id>http://aprell.github.io/blog/2014/10/11/book-masterminds-of-programming</id>
+    <content type="html"><![CDATA[<p>A few interesting and amusing quotes from the book <a href="http://shop.oreilly.com/product/9780596515171.do">Masterminds of
+Programming</a>:</p>
+
+<!--more-->
+
+
+
+
+<blockquote>Some 20 years ago I wanted to develop a tool to design VLSI chips.
+I didn&#8217;t have a Forth for my new PC, so I thought I&#8217;d try a different
+approach: machine language. Not assembler language, but actually typing the
+hex instructions. [&#8230;] My conclusion was that Forth is more efficient than
+machine language. Partly because of its interactivity and partly because of
+its syntax.<br>&#8212;Charles Moore</blockquote>
+
+
+
+
+<blockquote>My opinion is that OOP is one of the great frauds perpetrated on
+the community. [&#8230;] OOP was designed so that its clients could claim superior
+wisdom for being on the &#8220;inside&#8221;. The truth of the matter is that the single
+most important aspect of OOP is an approach devised decades ago: encapsulation
+of subroutines and data. All the rest is frosting.<br>&#8212;Thomas E.
+Kurtz</blockquote>
+
+
+
+
+<blockquote>The best way to avoid tough debugging is to write things very
+carefully in the first place.<br>&#8212;Brian Kernighan</blockquote>
+
+
+
+
+<blockquote>Software engineering is in many ways a very pathetic field,
+because so much of it is anecdotal and based on people&#8217;s judgments or even
+people&#8217;s aesthetic judgments.<br>&#8212;Peter Weinberger</blockquote>
+
+
+
+
+<blockquote>C is a reasonably good language for compilers to generate, but the
+idea that human beings should program in it is completely
+absurd.<br>&#8212;Bertrand Meyer</blockquote>
+
+]]></content>
+  </entry>
+  
+</feed>
