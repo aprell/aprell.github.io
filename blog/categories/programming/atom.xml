@@ -4,7 +4,7 @@
   <title><![CDATA[Category: programming | My Octopress Blog]]></title>
   <link href="http://aprell.github.io/blog/categories/programming/atom.xml" rel="self"/>
   <link href="http://aprell.github.io/"/>
-  <updated>2014-10-11T22:27:25+02:00</updated>
+  <updated>2014-11-13T21:01:39+01:00</updated>
   <id>http://aprell.github.io/</id>
   <author>
     <name><![CDATA[Andreas Prell]]></name>
@@ -62,6 +62,13 @@ people&#8217;s aesthetic judgments.<br>&#8212;Peter Weinberger</blockquote>
 <blockquote>C is a reasonably good language for compilers to generate, but the
 idea that human beings should program in it is completely
 absurd.<br>&#8212;Bertrand Meyer</blockquote>
+
+
+
+
+<!--References-->
+
+
 
 ]]></content>
   </entry>
