@@ -7,7 +7,7 @@ categories: [Books, Programming]
 ---
 
 A few interesting and amusing quotes from the book [Masterminds of
-Programming](http://shop.oreilly.com/product/9780596515171.do):
+Programming][1]:
 
 <!--more-->
 
@@ -35,3 +35,7 @@ people's aesthetic judgments.<br>---Peter Weinberger</blockquote>
 <blockquote>C is a reasonably good language for compilers to generate, but the
 idea that human beings should program in it is completely
 absurd.<br>---Bertrand Meyer</blockquote>
+
+<!--References-->
+
+[1]: http://shop.oreilly.com/product/9780596515171.do

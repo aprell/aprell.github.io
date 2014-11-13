@@ -7,9 +7,9 @@ categories: [Concurrency, Parallelism]
 ---
 
 Explain the difference between "concurrency" and "parallelism". Easy, right.
-Well... Depending on who you ask, the conclusion is either that
-[parallelism implies concurrency](http://books.google.de/books?id=J5-ckoCgc3IC&lpg=PA1&dq=introduction%20to%20concurrency&hl=de&pg=PP1#v=onepage&q&f=false)
-or that [parallelism has nothing to do with concurrency](http://existentialtype.wordpress.com/2011/03/17/parallelism-is-not-concurrency/)...
+Well... Depending on who you ask, the conclusion is either that [parallelism
+implies concurrency][1] or that [parallelism has nothing to do with
+concurrency][2]...
 
 <!--more-->
 
@@ -33,3 +33,8 @@ us.
 Can concurrency exist independently of parallelism? Certainly! Can parallelism
 exist independently of concurrency? That's the more interesting question. I'm
 tempted to say no.
+
+<!--References-->
+
+[1]: http://books.google.de/books?id=J5-ckoCgc3IC&lpg=PA1&dq=introduction%20to%20concurrency&hl=de&pg=PP1#v=onepage&q&f=false
+[2]: http://existentialtype.wordpress.com/2011/03/17/parallelism-is-not-concurrency
