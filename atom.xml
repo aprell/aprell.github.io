@@ -4,7 +4,7 @@
   <title><![CDATA[My Octopress Blog]]></title>
   <link href="http://aprell.github.io/atom.xml" rel="self"/>
   <link href="http://aprell.github.io/"/>
-  <updated>2014-11-13T21:01:39+01:00</updated>
+  <updated>2014-11-14T17:06:58+01:00</updated>
   <id>http://aprell.github.io/</id>
   <author>
     <name><![CDATA[Andreas Prell]]></name>
@@ -12,6 +12,28 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Code Mesh 2014]]></title>
+    <link href="http://aprell.github.io/blog/2014/11/13/code-mesh-2014/"/>
+    <updated>2014-11-13T21:15:39+01:00</updated>
+    <id>http://aprell.github.io/blog/2014/11/13/code-mesh-2014</id>
+    <content type="html"><![CDATA[<p>Two of my personal highlights from <a href="http://www.codemesh.io">Code Mesh</a> in one picture: QuickCheck
+and Idris. :)</p>
+
+<p align="center">
+<img src="http://aprell.github.io/images/codemesh2014.jpg" title="QuickCheck Evolution presented by John Hughes" alt="Code Mesh 2014" width="800"/>
+</p>
+
+
+
+
+<!--References-->
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Masterminds of Programming]]></title>
