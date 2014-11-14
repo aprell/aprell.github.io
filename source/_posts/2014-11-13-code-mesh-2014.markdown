@@ -1,0 +1,18 @@
+---
+layout: post
+title: "Code Mesh 2014"
+date: 2014-11-13 21:15:39 +0100
+comments:
+categories:
+---
+
+Two of my personal highlights from [Code Mesh][1] in one picture: QuickCheck
+and Idris. :)
+
+<p align="center">
+<img src="http://aprell.github.io/images/codemesh2014.jpg" title="QuickCheck Evolution presented by John Hughes" alt="Code Mesh 2014" width="800"/>
+</p>
+
+<!--References-->
+
+[1]: http://www.codemesh.io
