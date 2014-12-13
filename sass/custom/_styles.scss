@@ -1,7 +1,9 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
-$link-color: #7C7871;
+//$link-color: #7C7871;
+//$link-color: #929292;
+$link-color: #7D7D7D;
 $border-color: #dfdfdf;
 
 a {
@@ -29,7 +31,9 @@ a {
 
   p {
     font-size: 14px;
-    color: #bbb;
+    //color: #bbb;
+    //color: #929292;
+    color: #7D7D7D;
   }
 }
 
@@ -47,7 +51,9 @@ a {
     }
 
     h2 > a {
-      color: #333131;
+      //color: #333131;
+      //color: #225BCC;
+      color: #4082C2;
       font-weight: bold;
       font-size: 24px;
       text-decoration: none;
@@ -59,6 +65,16 @@ a {
 }
 
 .full-single-article {
+  h1 {
+	//color: #225BCC;
+	color: #4082C2;
+  }
+
+  h2 {
+	//color: #225BCC;
+	color: #4082C2;
+  }
+
   p {
     font-size: 18px;
     font-weight: normal;
@@ -94,10 +110,16 @@ a {
 #footer {
   span {
     font-size: 14px;
-    color: #bbb;
+    //color: #bbb;
+    //color: #888;
+	//color: #929292;
+	color: #7D7D7D;
 
     a {
-      color: #bbb;
+      //color: #bbb;
+      //color: #888;
+	  //color: #929292;
+	  color: #7D7D7D;
     }
   }
 }
