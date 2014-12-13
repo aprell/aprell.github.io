@@ -11,7 +11,7 @@ single: true
   <div class="container">
     <div class="row">
       <div class="col-md-8 col-md-offset-2">
-        <h1>{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h1>
+        <h2>{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h2>
         <div class="meta">
           Posted {% include post/date.html %}{% if updated %}{{ updated }}{% else %}{{ time }}{% endif %}
           {% include post/categories.html %}
