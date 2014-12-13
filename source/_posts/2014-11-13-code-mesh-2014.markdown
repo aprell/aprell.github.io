@@ -9,6 +9,8 @@ categories:
 Two of my personal highlights from [Code Mesh][1] in one picture: QuickCheck
 and Idris. :)
 
+<!--more-->
+
 <p align="center">
 <img src="http://aprell.github.io/images/codemesh2014.jpg" title="QuickCheck Evolution presented by John Hughes" alt="Code Mesh 2014" width="800"/>
 </p>
