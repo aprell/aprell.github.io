@@ -4,7 +4,7 @@
   <title><![CDATA[/home/andreas]]></title>
   <link href="http://aprell.github.io/atom.xml" rel="self"/>
   <link href="http://aprell.github.io/"/>
-  <updated>2014-12-13T16:34:06+01:00</updated>
+  <updated>2014-12-21T19:06:37+01:00</updated>
   <id>http://aprell.github.io/</id>
   <author>
     <name><![CDATA[Andreas Prell]]></name>
@@ -12,6 +12,89 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Lua Gotchas]]></title>
+    <link href="http://aprell.github.io/blog/2014/12/21/lua-gotchas/"/>
+    <updated>2014-12-21T18:26:15+01:00</updated>
+    <id>http://aprell.github.io/blog/2014/12/21/lua-gotchas</id>
+    <content type="html"><![CDATA[<p>Lua is one of my favorite programming languages. Lua is easy to learn, but not
+entirely without <a href="http://www.luafaq.org/gotchas.html">gotchas</a> if you&rsquo;re used to other languages. One gotcha is
+related to for-loops. What do you think the following piece of code will
+print?</p>
+
+<!--more-->
+
+
+
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='lua'><span class='line'><span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span> <span class="k">do</span>
+</span><span class='line'>  <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">then</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The numbers from one to five except four? Because that&rsquo;s what the equivalent
+loop in C++ would print:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+</span><span class='line'>  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Except it&rsquo;s not equivalent. Lua&rsquo;s for-loops are implemented in terms of while.
+Above example is translated to:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='lua'><span class='line'><span class="k">do</span>
+</span><span class='line'>  <span class="kd">local</span> <span class="n">_i</span><span class="p">,</span> <span class="n">_end</span><span class="p">,</span> <span class="n">_step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span>
+</span><span class='line'>  <span class="k">while</span> <span class="n">_i</span> <span class="o">&lt;=</span> <span class="n">_end</span> <span class="k">do</span>
+</span><span class='line'>      <span class="kd">local</span> <span class="n">i</span> <span class="o">=</span> <span class="n">_i</span>
+</span><span class='line'>      <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">then</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">end</span>
+</span><span class='line'>      <span class="n">_i</span> <span class="o">=</span> <span class="n">_i</span> <span class="o">+</span> <span class="n">_step</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Quoting from <a href="http://www.lua.org/pil/4.3.4.html">Programming in Lua</a>:</p>
+
+<blockquote>The for loop has some subtleties that you should learn in order to
+make good use of it. First, all three expressions are evaluated once, before
+the loop starts. [&#8230;] Second, the control variable is a local variable
+automatically declared by the for statement and is visible only inside the
+loop. [&#8230;] Third, you should never change the value of the control
+variable.</blockquote>
+
+
+
+
+<!--references-->
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Code Mesh 2014]]></title>
