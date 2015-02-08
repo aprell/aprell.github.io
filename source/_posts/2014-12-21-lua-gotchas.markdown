@@ -25,7 +25,7 @@ loop in C++ would print:
 
 ```c++
 for (int i = 1; i <= 5; i++) {
-	std::cout << i << std::endl;
+	std::cout << i << "\n";
 	if (i == 3) i++;
 }
 ```
