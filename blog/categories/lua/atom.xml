@@ -4,7 +4,7 @@
   <title><![CDATA[Category: lua | /home/andreas]]></title>
   <link href="http://aprell.github.io/blog/categories/lua/atom.xml" rel="self"/>
   <link href="http://aprell.github.io/"/>
-  <updated>2014-12-21T19:09:01+01:00</updated>
+  <updated>2015-02-08T16:44:16+01:00</updated>
   <id>http://aprell.github.io/</id>
   <author>
     <name><![CDATA[Andreas Prell]]></name>
@@ -36,7 +36,7 @@ end
 loop in C++ would print:</p>
 
 <pre><code class="c++">for (int i = 1; i &lt;= 5; i++) {
-    std::cout &lt;&lt; i &lt;&lt; std::endl;
+    std::cout &lt;&lt; i &lt;&lt; "\n";
     if (i == 3) i++;
 }
 </code></pre>
