@@ -13,27 +13,27 @@ print?
 
 <!--more-->
 
-```lua
+{% highlight lua %}
 for i = 1, 5 do
 	print(i)
 	if i == 3 then i = i + 1 end
 end
-```
+{% endhighlight %}
 
 The numbers from one to five except four? Because that's what the equivalent
 loop in C++ would print:
 
-```c++
+{% highlight c++ %}
 for (int i = 1; i <= 5; i++) {
 	std::cout << i << "\n";
 	if (i == 3) i++;
 }
-```
+{% endhighlight %}
 
 Except it's not equivalent. Lua's for-loops are implemented in terms of while.
 Above example is translated to:
 
-```lua
+{% highlight lua %}
 do
 	local _i, _end, _step = 1, 5, 1
 	while _i <= _end do
@@ -43,7 +43,7 @@ do
 		_i = _i + _step
 	end
 end
-```
+{% endhighlight %}
 
 Quoting from [Programming in Lua][2]:
 
