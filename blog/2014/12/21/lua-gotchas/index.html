@@ -77,53 +77,33 @@ print?</p>
 
 
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='lua'><span class='line'><span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span> <span class="k">do</span>
-</span><span class='line'>  <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">then</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="highlight"><pre><code class="language-lua" data-lang="lua"><span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span> <span class="k">do</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">then</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">end</span>
+<span class="k">end</span></code></pre></div>
 
 
 <p>The numbers from one to five except four? Because that&rsquo;s what the equivalent
 loop in C++ would print:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='c++'><span class='line'><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
-</span><span class='line'>  <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
-</span><span class='line'>  <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span>
-</span><span class='line'><span class="p">}</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">)</span> <span class="n">i</span><span class="o">++</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
 
 
 <p>Except it&rsquo;s not equivalent. Lua&rsquo;s for-loops are implemented in terms of while.
 Above example is translated to:</p>
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class='lua'><span class='line'><span class="k">do</span>
-</span><span class='line'>  <span class="kd">local</span> <span class="n">_i</span><span class="p">,</span> <span class="n">_end</span><span class="p">,</span> <span class="n">_step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span>
-</span><span class='line'>  <span class="k">while</span> <span class="n">_i</span> <span class="o">&lt;=</span> <span class="n">_end</span> <span class="k">do</span>
-</span><span class='line'>      <span class="kd">local</span> <span class="n">i</span> <span class="o">=</span> <span class="n">_i</span>
-</span><span class='line'>      <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-</span><span class='line'>      <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">then</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">end</span>
-</span><span class='line'>      <span class="n">_i</span> <span class="o">=</span> <span class="n">_i</span> <span class="o">+</span> <span class="n">_step</span>
-</span><span class='line'>  <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
+<div class="highlight"><pre><code class="language-lua" data-lang="lua"><span class="k">do</span>
+    <span class="kd">local</span> <span class="n">_i</span><span class="p">,</span> <span class="n">_end</span><span class="p">,</span> <span class="n">_step</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span>
+    <span class="k">while</span> <span class="n">_i</span> <span class="o">&lt;=</span> <span class="n">_end</span> <span class="k">do</span>
+        <span class="kd">local</span> <span class="n">i</span> <span class="o">=</span> <span class="n">_i</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">then</span> <span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">end</span>
+        <span class="n">_i</span> <span class="o">=</span> <span class="n">_i</span> <span class="o">+</span> <span class="n">_step</span>
+    <span class="k">end</span>
+<span class="k">end</span></code></pre></div>
 
 
 <p>Quoting from <a href="http://www.lua.org/pil/4.3.4.html">Programming in Lua</a>:</p>
