@@ -4,7 +4,7 @@
   <title><![CDATA[Category: lua | /home/andreas]]></title>
   <link href="http://aprell.github.io/blog/categories/lua/atom.xml" rel="self"/>
   <link href="http://aprell.github.io/"/>
-  <updated>2015-02-21T19:24:45+01:00</updated>
+  <updated>2015-02-21T20:07:24+01:00</updated>
   <id>http://aprell.github.io/</id>
   <author>
     <name><![CDATA[Andreas Prell]]></name>
@@ -57,8 +57,8 @@ stack traceback:
 
 <p>Let&rsquo;s see, what happened&hellip; <code>table.insert</code> got the wrong number of arguments
 and bailed out. The problem is that <code>print</code> has no return value. There&rsquo;s a
-difference between returning nothing and returning <code>nil</code>, as we swiftly convince
-ourselves:</p>
+difference between returning nothing and returning <code>nil</code>, as we swiftly
+convince ourselves:</p>
 
 <pre><code class="lua">map({1, 2, 3}, function (a) print(a); return nil end)
 </code></pre>
