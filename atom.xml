@@ -4,7 +4,7 @@
   <title><![CDATA[/home/andreas]]></title>
   <link href="http://aprell.github.io/atom.xml" rel="self"/>
   <link href="http://aprell.github.io/"/>
-  <updated>2015-03-04T11:40:01+01:00</updated>
+  <updated>2015-08-04T20:28:07+02:00</updated>
   <id>http://aprell.github.io/</id>
   <author>
     <name><![CDATA[Andreas Prell]]></name>
@@ -57,10 +57,9 @@ stack traceback:
     [C]: in ?</code></pre></div>
 
 
-<p>Let&rsquo;s see, what happened&hellip; <code>table.insert</code> got the wrong number of arguments
-and bailed out. The problem is that <code>print</code> has no return value. There&rsquo;s a
-difference between returning nothing and returning <code>nil</code>, as we swiftly
-convince ourselves:</p>
+<p>Let&rsquo;s see&hellip; <code>table.insert</code> got the wrong number of arguments and bailed out.
+The problem is that <code>print</code> has no return value. There&rsquo;s a difference between
+returning nothing and returning <code>nil</code>, as we convince ourselves:</p>
 
 <div class="highlight"><pre><code class="language-lua" data-lang="lua"><span class="n">map</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="k">function</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="k">return</span> <span class="kc">nil</span> <span class="k">end</span><span class="p">)</span></code></pre></div>
 
@@ -118,8 +117,8 @@ print?</p>
 <span class="k">end</span></code></pre></div>
 
 
-<p>The numbers from one to five except four? Because that&rsquo;s what the equivalent
-loop in C++ would print:</p>
+<p>The numbers from one to five except four? Because that&rsquo;s what we expect from
+an equivalent loop in, say, C++:</p>
 
 <div class="highlight"><pre><code class="language-c--" data-lang="c++"><span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="mi">5</span><span class="p">;</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">std</span><span class="o">::</span><span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">i</span> <span class="o">&lt;&lt;</span> <span class="s">&quot;</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">;</span>
@@ -266,14 +265,14 @@ parallelism call for different tools</a>.</p>
 
 <p>Concurrent languages such as <a href="http://golang.org">Go</a> support parallelism basically out of the
 box: create a number of independent tasks and make sure they are scheduled by
-a pool of worker threads. Done in a few lines of code.  Problem solved?</p>
+a pool of worker threads. Done in a few lines of code. Problem solved?</p>
 
 <p>I agree that a single set of concurrency constructs is too limiting for the
 kind of parallel programs we&rsquo;d want to write. Consider parallel loops, for
 example. Relatively straightforward to implement in Go, but <a href="http://www.golangpatterns.info/concurrency/parallel-for-loop">starting a
 goroutine for each iteration</a>? Hardly practical. This is not to say that
 goroutines and channels can&rsquo;t be used to implement parallel loops efficiently;
-they can, it&rsquo;s just more work. But programmers shouldn&rsquo;t need to worry about
+they can, it&rsquo;s just more work. But programmers shouldn&rsquo;t have to worry about
 goroutines and channels when all they want to do is run some iterations of a
 loop in parallel.</p>
 

@@ -105,10 +105,9 @@ stack traceback:
     [C]: in ?</code></pre></div>
 
 
-<p>Let&rsquo;s see, what happened&hellip; <code>table.insert</code> got the wrong number of arguments
-and bailed out. The problem is that <code>print</code> has no return value. There&rsquo;s a
-difference between returning nothing and returning <code>nil</code>, as we swiftly
-convince ourselves:</p>
+<p>Let&rsquo;s see&hellip; <code>table.insert</code> got the wrong number of arguments and bailed out.
+The problem is that <code>print</code> has no return value. There&rsquo;s a difference between
+returning nothing and returning <code>nil</code>, as we convince ourselves:</p>
 
 <div class="highlight"><pre><code class="language-lua" data-lang="lua"><span class="n">map</span><span class="p">({</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">},</span> <span class="k">function</span> <span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">);</span> <span class="k">return</span> <span class="kc">nil</span> <span class="k">end</span><span class="p">)</span></code></pre></div>
 
