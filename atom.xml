@@ -4,7 +4,7 @@
   <title><![CDATA[/home/andreas]]></title>
   <link href="http://aprell.github.io/atom.xml" rel="self"/>
   <link href="http://aprell.github.io/"/>
-  <updated>2015-08-04T20:35:06+02:00</updated>
+  <updated>2015-08-20T23:52:22+02:00</updated>
   <id>http://aprell.github.io/</id>
   <author>
     <name><![CDATA[Andreas Prell]]></name>
@@ -12,6 +12,58 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Dependent Types in Haskell]]></title>
+    <link href="http://aprell.github.io/blog/2015/08/20/dependent-types-in-haskell/"/>
+    <updated>2015-08-20T21:58:46+02:00</updated>
+    <id>http://aprell.github.io/blog/2015/08/20/dependent-types-in-haskell</id>
+    <content type="html"><![CDATA[<p>It looks like GHC is getting closer to supporting dependent types with a patch
+that <a href="https://typesandkinds.wordpress.com/2015/08/19/planned-change-to-ghc-merging-types-and-kinds">eliminates the distinction between types and kinds</a>. What is a
+dependent type? Perhaps the most accessible introduction I&rsquo;ve seen so far is a
+recently updated article on the merits of programming with (almost) dependent
+types: <a href="http://okmij.org/ftp/Haskell/dependent-types.html">Approximate Dependent-Type Programming</a></p>
+
+<!--more-->
+
+
+<blockquote><p>An ordinary type such as <code>[a]</code> may depend on other types &ndash; in our case, the
+types of list elements &ndash; but not on the values of those elements or their
+number. A dependent type does depend on such dynamic values. [&hellip;] One
+should distinguish a dependent type (which depends on a dynamic value) from
+a polymorphic type such as <code>Maybe a</code>. The type <code>List n a</code> from our running
+example is indexed by the value (the list length) and by the type (of its
+elements): it is both dependent (in <code>n</code>) and polymorphic (or, technically,
+parametric), in <code>a</code>.</p></blockquote>
+
+<p>In other words, <code>List n a</code> is parameterized by a value in addition to a type.</p>
+
+<blockquote><p>The different nature of the two arguments in <code>List n a</code> has many
+consequences: since the list length <code>n</code> is a natural number, one may apply
+to it any operation on natural numbers such as addition, increment,
+multiplication, etc.</p></blockquote>
+
+<p>The article brings up an interesting example in which the type checker must be
+convinced that <code>List (n+m) a</code> and <code>List (m+n) a</code> are the same type.</p>
+
+<blockquote><p>Now, deciding if two types are the same involves determining if two
+expressions are equal, which is generally undecidable (think of functions or
+recursive expressions). There is a bigger problem: in our example, <code>n</code> and
+<code>m</code> are just variables, whose values will be known only at run-time. The
+type-checker, which runs at compile-time, therefore has to determine that
+<code>n+m</code> is equal to <code>m+n</code> <em>without</em> knowing the concrete values of <code>n</code> and
+<code>m</code>. We know that natural addition is commutative, but the type-checker does
+not. It is usually not so smart to figure out the commutativity from the
+definition of addition. Therefore, we have to somehow supply the <em>proof</em> of
+the commutativity to the type-checker. Programming with dependent types
+involves a great deal of theorem proving.</p></blockquote>
+
+<!--References-->
+
+
+
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[More Lua Gotchas]]></title>

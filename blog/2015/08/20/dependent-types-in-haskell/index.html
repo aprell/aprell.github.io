@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Dependent Types in Haskell - /home/andreas</title>
+  <meta name="author" content="Andreas Prell">
+
+  
+  <meta name="description" content="↩ Dependent Types in Haskell Posted August 20, 2015 in haskell, programming, types It looks like GHC is getting closer to supporting dependent types &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://aprell.github.io/blog/2015/08/20/dependent-types-in-haskell">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="/home/andreas" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+
+</head>
+
+  <body>
+    <a href="/" class="home-icon grow">
+  <p>↩</p>
+</a>
+
+<article role="article" class="full-single-article">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2>Dependent Types in Haskell</h2>
+        <div class="meta">
+          Posted 
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime="2015-08-20T21:58:46+02:00" pubdate data-updated="true">August 20, 2015</time>
+          
+
+in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/haskell/'>haskell</a>, <a class='category' href='/blog/categories/programming/'>programming</a>, <a class='category' href='/blog/categories/types/'>types</a>
+  
+</span>
+
+
+        </div>
+        <p>It looks like GHC is getting closer to supporting dependent types with a patch
+that <a href="https://typesandkinds.wordpress.com/2015/08/19/planned-change-to-ghc-merging-types-and-kinds">eliminates the distinction between types and kinds</a>. What is a
+dependent type? Perhaps the most accessible introduction I&rsquo;ve seen so far is a
+recently updated article on the merits of programming with (almost) dependent
+types: <a href="http://okmij.org/ftp/Haskell/dependent-types.html">Approximate Dependent-Type Programming</a></p>
+
+<!--more-->
+
+
+<blockquote><p>An ordinary type such as <code>[a]</code> may depend on other types &ndash; in our case, the
+types of list elements &ndash; but not on the values of those elements or their
+number. A dependent type does depend on such dynamic values. [&hellip;] One
+should distinguish a dependent type (which depends on a dynamic value) from
+a polymorphic type such as <code>Maybe a</code>. The type <code>List n a</code> from our running
+example is indexed by the value (the list length) and by the type (of its
+elements): it is both dependent (in <code>n</code>) and polymorphic (or, technically,
+parametric), in <code>a</code>.</p></blockquote>
+
+<p>In other words, <code>List n a</code> is parameterized by a value in addition to a type.</p>
+
+<blockquote><p>The different nature of the two arguments in <code>List n a</code> has many
+consequences: since the list length <code>n</code> is a natural number, one may apply
+to it any operation on natural numbers such as addition, increment,
+multiplication, etc.</p></blockquote>
+
+<p>The article brings up an interesting example in which the type checker must be
+convinced that <code>List (n+m) a</code> and <code>List (m+n) a</code> are the same type.</p>
+
+<blockquote><p>Now, deciding if two types are the same involves determining if two
+expressions are equal, which is generally undecidable (think of functions or
+recursive expressions). There is a bigger problem: in our example, <code>n</code> and
+<code>m</code> are just variables, whose values will be known only at run-time. The
+type-checker, which runs at compile-time, therefore has to determine that
+<code>n+m</code> is equal to <code>m+n</code> <em>without</em> knowing the concrete values of <code>n</code> and
+<code>m</code>. We know that natural addition is commutative, but the type-checker does
+not. It is usually not so smart to figure out the commutativity from the
+definition of addition. Therefore, we have to somehow supply the <em>proof</em> of
+the commutativity to the type-checker. Programming with dependent types
+involves a great deal of theorem proving.</p></blockquote>
+
+<!--References-->
+
+
+
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<hr class="divider-short"/>
+
+<div class="archive-link">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        
+          <a class="pull-left" href="/blog/2015/02/21/more-lua-gotchas/" title="Previous Post: More Lua Gotchas">&laquo; Previous: More Lua Gotchas</a>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <footer id="footer" class="her-row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+  <p>
+  Copyright &copy; 2015 - Andreas Prell
+  <br><span class="credit">Powered by <a href="http://octopress.org">Octopress</a> |
+	  Design based on <a href="https://github.com/sevenadrian/MediumFox">MediumFox</a> |
+	  Icons from <a href="http://glyphicons.com">glyphicons.com</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>
+  </span>
+</p>
+
+</div>
+
+    </div>
+  </div>
+</footer>
+
+    
+
+
+  </body>
+</html>
