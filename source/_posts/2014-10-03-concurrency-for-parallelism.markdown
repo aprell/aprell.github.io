@@ -19,14 +19,14 @@ parallelism call for different tools][1].
 
 Concurrent languages such as [Go][2] support parallelism basically out of the
 box: create a number of independent tasks and make sure they are scheduled by
-a pool of worker threads. Done in a few lines of code.  Problem solved?
+a pool of worker threads. Done in a few lines of code. Problem solved?
 
 I agree that a single set of concurrency constructs is too limiting for the
 kind of parallel programs we'd want to write. Consider parallel loops, for
 example. Relatively straightforward to implement in Go, but [starting a
 goroutine for each iteration][3]? Hardly practical. This is not to say that
 goroutines and channels can't be used to implement parallel loops efficiently;
-they can, it's just more work. But programmers shouldn't need to worry about
+they can, it's just more work. But programmers shouldn't have to worry about
 goroutines and channels when all they want to do is run some iterations of a
 loop in parallel.
 

@@ -46,10 +46,9 @@ stack traceback:
 	[C]: in ?
 {% endhighlight %}
 
-Let's see, what happened... `table.insert` got the wrong number of arguments
-and bailed out. The problem is that `print` has no return value. There's a
-difference between returning nothing and returning `nil`, as we swiftly
-convince ourselves:
+Let's see... `table.insert` got the wrong number of arguments and bailed out.
+The problem is that `print` has no return value. There's a difference between
+returning nothing and returning `nil`, as we convince ourselves:
 
 {% highlight lua %}
 map({1, 2, 3}, function (a) print(a); return nil end)

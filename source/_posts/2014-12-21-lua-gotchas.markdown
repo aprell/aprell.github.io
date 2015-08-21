@@ -20,8 +20,8 @@ for i = 1, 5 do
 end
 {% endhighlight %}
 
-The numbers from one to five except four? Because that's what the equivalent
-loop in C++ would print:
+The numbers from 1 to 5, skipping 4? Because that's what we expect from an
+equivalent loop in, say, C++:
 
 {% highlight c++ %}
 for (int i = 1; i <= 5; i++) {
