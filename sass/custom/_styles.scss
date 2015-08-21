@@ -162,9 +162,12 @@ ul {
 }
 
 p code, li code {
-  background: #E2DEDE;
-  color: #000;
-  border: 1px solid #CEC2C2;
+  //background: #E2DEDE;
+  color: #333;
+  font-size: 15px;
+  border: solid 1px;
+  border-radius: 4px;
+  //padding: 1px;
 }
 
 em {
