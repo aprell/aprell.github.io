@@ -15,11 +15,13 @@ layout: default
     <div class="container">
       {% for post in site.posts %}
         {% assign content = post.content %}
-        <div class="row">
-          <div class="col-md-offset-2 col-md-8">
-            {% include article_listing.html %}
+		{% if post.title != "Hello Blog" %}
+          <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+              {% include article_listing.html %}
+            </div>
           </div>
-        </div>
+		{% endif %}
       {% endfor %}
     </div>
   </div>
