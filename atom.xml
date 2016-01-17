@@ -4,7 +4,7 @@
   <title><![CDATA[/home/andreas]]></title>
   <link href="http://aprell.github.io/atom.xml" rel="self"/>
   <link href="http://aprell.github.io/"/>
-  <updated>2015-08-21T22:08:29+02:00</updated>
+  <updated>2016-01-17T01:08:41+01:00</updated>
   <id>http://aprell.github.io/</id>
   <author>
     <name><![CDATA[Andreas Prell]]></name>
@@ -20,9 +20,8 @@
     <id>http://aprell.github.io/blog/2015/08/20/dependent-types-in-haskell</id>
     <content type="html"><![CDATA[<p>It looks like GHC is getting closer to supporting dependent types with a patch
 that <a href="https://typesandkinds.wordpress.com/2015/08/19/planned-change-to-ghc-merging-types-and-kinds">eliminates the distinction between types and kinds</a>. What is a
-dependent type? Perhaps the most accessible introduction I&rsquo;ve seen so far is a
-recently updated article on the merits of programming with (almost) dependent
-types: <a href="http://okmij.org/ftp/Haskell/dependent-types.html">Approximate Dependent-Type Programming</a></p>
+dependent type? The most accessible introduction I&rsquo;ve found is an article
+called <a href="http://okmij.org/ftp/Haskell/dependent-types.html">Approximate Dependent-Type Programming</a>:</p>
 
 <!--more-->
 

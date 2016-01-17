@@ -1,93 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  
-  
   <url>
     <loc>http://aprell.github.io/blog/2015/08/20/dependent-types-in-haskell/</loc>
-    
     <lastmod>2015-08-20T21:58:46+02:00</lastmod>
-    
-    <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>http://aprell.github.io/blog/2015/02/21/more-lua-gotchas/</loc>
-    
     <lastmod>2015-02-21T18:49:01+01:00</lastmod>
-    
-    <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>http://aprell.github.io/blog/2014/12/21/lua-gotchas/</loc>
-    
     <lastmod>2014-12-21T18:26:15+01:00</lastmod>
-    
-    <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>http://aprell.github.io/blog/2014/11/13/code-mesh-2014/</loc>
-    
     <lastmod>2014-11-13T21:15:39+01:00</lastmod>
-    
-    <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>http://aprell.github.io/blog/2014/10/11/masterminds-of-programming/</loc>
-    
     <lastmod>2014-10-11T17:19:43+02:00</lastmod>
-    
-    <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>http://aprell.github.io/blog/2014/10/03/concurrency-for-parallelism/</loc>
-    
     <lastmod>2014-10-03T20:35:36+02:00</lastmod>
-    
-    <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>http://aprell.github.io/blog/2014/09/24/concurrency-versus-parallelism/</loc>
-    
     <lastmod>2014-09-24T15:56:09+02:00</lastmod>
-    
-    <priority>0.8</priority>
   </url>
-  
   <url>
     <loc>http://aprell.github.io/blog/2014/09/16/hello-blog/</loc>
-    
     <lastmod>2014-09-16T16:43:40+02:00</lastmod>
-    
-    <priority>0.8</priority>
   </url>
-  
-  
   <url>
     <loc>http://aprell.github.io/</loc>
-    <lastmod>2015-08-21T22:08:29+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
   </url>
-  
   <url>
     <loc>http://aprell.github.io/blog/archives/</loc>
-    <lastmod>2015-08-21T22:08:29+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
-  
   <url>
     <loc>http://aprell.github.io/posts/</loc>
-    <lastmod>2015-08-21T22:08:29+02:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
   </url>
-  
-  
-  
+  <url>
+    <loc>http://aprell.github.io/blog/categories/concurrency/</loc>
+  </url>
+  <url>
+    <loc>http://aprell.github.io/blog/categories/parallelism/</loc>
+  </url>
+  <url>
+    <loc>http://aprell.github.io/blog/categories/go/</loc>
+  </url>
+  <url>
+    <loc>http://aprell.github.io/blog/categories/books/</loc>
+  </url>
+  <url>
+    <loc>http://aprell.github.io/blog/categories/programming/</loc>
+  </url>
+  <url>
+    <loc>http://aprell.github.io/blog/categories/lua/</loc>
+  </url>
+  <url>
+    <loc>http://aprell.github.io/blog/categories/haskell/</loc>
+  </url>
+  <url>
+    <loc>http://aprell.github.io/blog/categories/types/</loc>
+  </url>
 </urlset>
