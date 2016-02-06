@@ -6,70 +6,91 @@ comments:
 categories: [Lua, Programming]
 ---
 
-Speaking of Lua gotchas, here's another one. Assume you have a simple function
-for mapping over tables (sequences):
+Speaking of Lua gotchas, here's another one. In Lua, a function with *n*
+parameters is similar to a variadic function. As an example, consider:
 
 <!--more-->
 
 {% highlight lua %}
-local function map(t, f)
-	local m = {}
-	for _, v in ipairs(t) do
-		table.insert(m, f(v))
-	end
-	return m
+function f(a, b)
+	print(a, b)
 end
 {% endhighlight %}
 
-`map` seems to work as expected, for instance,
+We can call `f` with as many arguments as we like. Missing arguments become
+`nil`, extra arguments are discarded:
 
 {% highlight lua %}
-map({1, 2, 3}, function (a) return a^2 end)
+f()        -- nil nil
+f(1)       -- 1   nil
+f(1, 2)    -- 1   2
+f(1, 2, 3) -- 1   2
 {% endhighlight %}
 
-returns a table with the numbers 1, 4, and 9. Nice. How about printing each
-element of a table? We might consider using something like
+In fact, function `f` could be written as:
 
 {% highlight lua %}
-map({1, 2, 3}, print)
+function f(...)
+	local a, b = ...
+	print(a, b)
+end
 {% endhighlight %}
 
-Whoops!
+The [reference manual][1] has the following to say about `local a, b = ...`:
+
+<blockquote>Before the assignment, the list of values is <i>adjusted</i> to
+the length of the list of variables. If there are more values than needed, the
+excess values are thrown away. If there are fewer values than needed, the list
+is extended with as many <b>nil</b>'s as needed. If the list of expressions
+ends with a function call, then all values returned by that call enter the
+list of values, before the adjustment (except when the call is enclosed in
+parentheses; see §3.4).</blockquote>
+
+There is no observable difference, whether we call `f(1)` or `f(1, nil)`. But
+for some functions, there is. Suppose we have
+
+{% highlight lua %}
+table.insert(t, g())
+{% endhighlight %}
+
+where `t` is a table and `g` is a function that may or may not return a value.
+As long as `g` returns a value, including `nil`, everything works as expected.
+(We don't mind appending `nil` to a table.)  When `g` happens to return
+nothing, `table.insert` complains about a missing argument, which may be
+[surprising][2], considering that Lua is supposed to [adjust the number of
+arguments to the number of parameters][3]:
 
 {% highlight text %}
-1
-lua: nothing.lua:4: wrong number of arguments to 'insert'
+stdin:1: wrong number of arguments to 'insert'
 stack traceback:
 	[C]: in function 'insert'
-	nothing.lua:4: in function 'map'
-	nothing.lua:10: in main chunk
+	stdin:1: in main chunk
 	[C]: in ?
 {% endhighlight %}
 
-Let's see... `table.insert` got the wrong number of arguments and bailed out.
-The problem is that `print` has no return value. There's a difference between
-returning nothing and returning `nil`, as we convince ourselves:
+We can introduce a variable
 
 {% highlight lua %}
-map({1, 2, 3}, function (a) print(a); return nil end)
+local b = g()
+table.insert(t, b)
 {% endhighlight %}
 
-correctly prints the numbers 1 to 3. To force exactly one result, we can
-assign `f(v)` to a variable or put an extra pair of parentheses around the
-function call. If `f` is a function that returns nothing, the result will be
-`nil`, as if `f` returned `nil` in the first place. Changing `f(v)` to
-`(f(v))` in the definition of `map` does the trick, and `map({1, 2, 3},
-print)` now works as intended.
-
-To summarize, all three functions
+or put parentheses around the call to `g`
 
 {% highlight lua %}
-local function f() end
-local function g() return end
-local function h() return nil end
+table.insert(t, (g()))
 {% endhighlight %}
 
-produce a result of `nil` when used liked this:
+to force exactly one result, turning nothing into `nil`, as if `g` returned
+`nil`. And `nil` is not nothing. All three functions
+
+{% highlight lua %}
+function f() end
+function g() return end
+function h() return nil end
+{% endhighlight %}
+
+are interchangeable when used liked this:
 
 {% highlight lua %}
 local x = f(); print(x) -- nil
@@ -77,10 +98,16 @@ local y = g(); print(y) -- nil
 local z = h(); print(z) -- nil
 {% endhighlight %}
 
-But only `h` does in fact _return_ `nil`, whereas `f` and `g` return nothing:
+But only `h` returns `nil`, whereas `f` and `g` return nothing:
 
 {% highlight lua %}
 print(f()) --
 print(g()) --
 print(h()) -- nil
 {% endhighlight %}
+
+<!--References-->
+
+[1]: http://www.lua.org/manual/5.2/manual.html#3.3.3
+[2]: http://lua-users.org/lists/lua-l/2011-02/msg01444.html
+[3]: http://www.lua.org/pil/5.html
