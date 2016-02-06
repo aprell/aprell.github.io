@@ -139,21 +139,21 @@ stack traceback:
 
 
 <p>to force exactly one result, turning nothing into <code>nil</code>, as if <code>g</code> returned
-<code>nil</code>. But <code>nil</code> is not nothing. All three functions</p>
+<code>nil</code>. And <code>nil</code> is not nothing. All three functions</p>
 
 <div class="highlight"><pre><code class="language-lua" data-lang="lua"><span class="k">function</span> <span class="nf">f</span><span class="p">()</span> <span class="k">end</span>
 <span class="k">function</span> <span class="nf">g</span><span class="p">()</span> <span class="k">return</span> <span class="k">end</span>
 <span class="k">function</span> <span class="nf">h</span><span class="p">()</span> <span class="k">return</span> <span class="kc">nil</span> <span class="k">end</span></code></pre></div>
 
 
-<p>produce <code>nil</code> when used liked this:</p>
+<p>are interchangeable when used liked this:</p>
 
 <div class="highlight"><pre><code class="language-lua" data-lang="lua"><span class="kd">local</span> <span class="n">x</span> <span class="o">=</span> <span class="n">f</span><span class="p">();</span> <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="c1">-- nil</span>
 <span class="kd">local</span> <span class="n">y</span> <span class="o">=</span> <span class="n">g</span><span class="p">();</span> <span class="nb">print</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="c1">-- nil</span>
 <span class="kd">local</span> <span class="n">z</span> <span class="o">=</span> <span class="n">h</span><span class="p">();</span> <span class="nb">print</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="c1">-- nil</span></code></pre></div>
 
 
-<p>But only <code>h</code> does in fact return <code>nil</code>, whereas <code>f</code> and <code>g</code> return nothing:</p>
+<p>But only <code>h</code> returns <code>nil</code>, whereas <code>f</code> and <code>g</code> return nothing:</p>
 
 <div class="highlight"><pre><code class="language-lua" data-lang="lua"><span class="nb">print</span><span class="p">(</span><span class="n">f</span><span class="p">())</span> <span class="c1">--</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">g</span><span class="p">())</span> <span class="c1">--</span>
