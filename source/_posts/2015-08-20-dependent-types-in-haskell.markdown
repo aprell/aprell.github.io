@@ -8,9 +8,8 @@ categories: [Haskell, Programming, Types]
 
 It looks like GHC is getting closer to supporting dependent types with a patch
 that [eliminates the distinction between types and kinds][1]. What is a
-dependent type? Perhaps the most accessible introduction I've seen so far is a
-recently updated article on the merits of programming with (almost) dependent
-types: [Approximate Dependent-Type Programming][2]
+dependent type? The most accessible introduction I've found is an article
+called [Approximate Dependent-Type Programming][2]:
 
 <!--more-->
 
