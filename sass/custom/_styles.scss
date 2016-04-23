@@ -162,12 +162,15 @@ ul {
 }
 
 p code, li code {
-  //background: #E2DEDE;
+  background: #F1F1F1;
   color: #333;
   font-size: 15px;
-  border: solid 1px;
-  border-radius: 4px;
-  //padding: 1px;
+  border: none;
+  border-radius: 0px;
+  //padding-top: 1px;
+  //padding-right: 4px;
+  //padding-bottom: 1px;
+  //padding-left: 4px;
 }
 
 em {
