@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: ocaml | /home/andreas]]></title>
+  <link href="http://aprell.github.io/blog/categories/ocaml/atom.xml" rel="self"/>
+  <link href="http://aprell.github.io/"/>
+  <updated>2016-04-23T22:35:23+02:00</updated>
+  <id>http://aprell.github.io/</id>
+  <author>
+    <name><![CDATA[Andreas Prell]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Safe Systems Programming]]></title>
+    <link href="http://aprell.github.io/blog/2016/04/23/safe-systems-programming/"/>
+    <updated>2016-04-23T22:03:59+02:00</updated>
+    <id>http://aprell.github.io/blog/2016/04/23/safe-systems-programming</id>
+    <content type="html"><![CDATA[<p>Rust seems like a good choice for systems programming. See <a href="http://kamalmarhubi.com/blog/2016/04/13/rust-nix-easier-unix-systems-programming-3">this recent
+post</a> for an example of the safety afforded by using Rust instead of C.
+Another language that deserves consideration is OCaml, where forking a process
+looks like this:</p>
+
+<!--more-->
+
+
+<p><div class="highlight"><pre><code class="language-ocaml" data-lang="ocaml"><span class="k">match</span> <span class="nn">Unix</span><span class="p">.</span><span class="n">fork</span> <span class="bp">()</span> <span class="k">with</span>
+<span class="o">|</span> <span class="mi">0</span> <span class="o">-&gt;</span> <span class="o">(&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="n">child</span> <span class="n">process</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;)</span>
+<span class="o">|</span> <span class="n">pid</span> <span class="o">-&gt;</span> <span class="o">(&lt;</span><span class="n">em</span><span class="o">&gt;</span> <span class="n">parent</span> <span class="n">process</span> <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;)</span></code></pre></div></p>
+
+<p>Short and sweet, but besides being pleasant to read, is this code actually
+safe? What if <code>Unix.fork</code> returns -1? Well, it can&rsquo;t. <code>Unix.fork</code> calls a <a href="https://github.com/ocaml/ocaml/blob/trunk/otherlibs/unix/fork.c">C
+function</a> that starts with the following lines of code:</p>
+
+<p><div class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">uerror</span><span class="p">(</span><span class="o">&amp;</span><span class="n">ldquo</span><span class="p">;</span><span class="n">fork</span><span class="o">&amp;</span><span class="n">rdquo</span><span class="p">;,</span> <span class="n">Nothing</span><span class="p">);</span></code></pre></div></p>
+
+<p>That is, if the actual system call fails, <code>Unix.fork</code> raises an exception that
+may terminate our program. We can&rsquo;t accidentally kill -1 because <code>pid</code> is
+guaranteed to be a valid process ID.</p>
+
+<p>If this sounds interesting, I recommend checking out <a href="https://ocaml.github.io/ocamlunix">Unix Systems Programming
+in OCaml</a>.</p>
+
+<!--References-->
+
+
+
+]]></content>
+  </entry>
+  
+</feed>

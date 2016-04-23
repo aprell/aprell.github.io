@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Safe Systems Programming - /home/andreas</title>
+  <meta name="author" content="Andreas Prell">
+
+  
+  <meta name="description" content="↩ Safe Systems Programming Posted April 23, 2016 in ocaml, programming Rust seems like a good choice for systems programming. See this recent
+post &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://aprell.github.io/blog/2016/04/23/safe-systems-programming">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="/home/andreas" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  
+
+</head>
+
+  <body>
+    <a href="/" class="home-icon grow">
+  <p>↩</p>
+</a>
+
+<article role="article" class="full-single-article">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2>Safe Systems Programming</h2>
+        <div class="meta">
+          Posted 
+
+
+
+
+
+
+
+
+
+
+
+
+<time datetime="2016-04-23T22:03:59+02:00" pubdate data-updated="true">April 23, 2016</time>
+          
+
+in
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/ocaml/'>ocaml</a>, <a class='category' href='/blog/categories/programming/'>programming</a>
+  
+</span>
+
+
+        </div>
+        <p>Rust seems like a good choice for systems programming. See <a href="http://kamalmarhubi.com/blog/2016/04/13/rust-nix-easier-unix-systems-programming-3">this recent
+post</a> for an example of the safety afforded by using Rust instead of C.
+Another language that deserves consideration is OCaml, where forking a process
+looks like this:</p>
+
+<!--more-->
+
+
+
+
+<div class="highlight"><pre><code class="language-ocaml" data-lang="ocaml"><span class="k">match</span> <span class="nn">Unix</span><span class="p">.</span><span class="n">fork</span> <span class="bp">()</span> <span class="k">with</span>
+<span class="o">|</span> <span class="mi">0</span> <span class="o">-&gt;</span> <span class="c">(* child process *)</span>
+<span class="o">|</span> <span class="n">pid</span> <span class="o">-&gt;</span> <span class="c">(* parent process *)</span></code></pre></div>
+
+
+<p>Short and sweet, but besides being pleasant to read, is this code actually
+safe? What if <code>Unix.fork</code> returns -1? Well, it can&rsquo;t. <code>Unix.fork</code> calls a <a href="https://github.com/ocaml/ocaml/blob/trunk/otherlibs/unix/fork.c">C
+function</a> that starts with the following lines of code:</p>
+
+<div class="highlight"><pre><code class="language-c" data-lang="c"><span class="kt">int</span> <span class="n">ret</span><span class="p">;</span>
+<span class="n">ret</span> <span class="o">=</span> <span class="n">fork</span><span class="p">();</span>
+<span class="k">if</span> <span class="p">(</span><span class="n">ret</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">uerror</span><span class="p">(</span><span class="s">&quot;fork&quot;</span><span class="p">,</span> <span class="n">Nothing</span><span class="p">);</span></code></pre></div>
+
+
+<p>That is, if the actual system call fails, <code>Unix.fork</code> raises an exception that
+may terminate our program. We can&rsquo;t accidentally kill -1 because <code>pid</code> is
+guaranteed to be a valid process ID.</p>
+
+<p>If this sounds interesting, I recommend checking out <a href="https://ocaml.github.io/ocamlunix">Unix Systems Programming
+in OCaml</a>.</p>
+
+<!--References-->
+
+
+
+
+      </div>
+    </div>
+  </div>
+</article>
+
+<hr class="divider-short"/>
+
+<div class="archive-link">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        
+          <a class="pull-left" href="/blog/2015/08/20/dependent-types-in-haskell/" title="Previous Post: Dependent Types in Haskell">&laquo; Previous: Dependent Types in Haskell</a>
+        
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+    <footer id="footer" class="her-row">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+  <p>
+  Copyright &copy; 2016 - Andreas Prell
+  <br><span class="credit">Powered by <a href="http://octopress.org">Octopress</a> |
+	  Design based on <a href="https://github.com/sevenadrian/MediumFox">MediumFox</a> |
+	  Icons from <a href="http://glyphicons.com">glyphicons.com</a>, licensed under <a href="http://creativecommons.org/licenses/by/3.0">CC BY 3.0</a>
+  </span>
+</p>
+
+</div>
+
+    </div>
+  </div>
+</footer>
+
+    
+
+
+  </body>
+</html>
