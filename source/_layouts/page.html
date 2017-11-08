@@ -2,6 +2,26 @@
 layout: default
 ---
 
+<a href="/" class="home-icon grow">
+  <p>↩</p>
+</a>
+
+<article role="article" class="full-single-article">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <h2>{% if site.titlecase %}{{ page.title | titlecase }}{% else %}{{ page.title }}{% endif %}</h2>
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</article>
+
+{% if page.footer == true %}
+  {% include footer.html %}
+{% endif %}
+
+<!--
 <div>
 <article role="article">
   {% if page.title %}
@@ -40,3 +60,4 @@ layout: default
   {% endif %}
 </aside>
 {% endunless %}
+-->
