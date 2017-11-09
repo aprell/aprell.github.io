@@ -14,6 +14,33 @@ a {
   }
 }
 
+// Font Awesome icon link
+a.falink {
+  color: #555451;
+  // Copied from .social-icon-list
+  opacity: 0.65;
+  &:hover {
+    opacity: 1.0;
+  }
+}
+
+// Font Awesome icons
+.fa-envelope,
+.fa-envelope-square,
+.fa-github,
+.fa-github-square,
+.fa-google-plus,
+.fa-google-plus-official,
+.fa-google-plus-square,
+.fa-info,
+.fa-info-circle,
+.fa-instagram,
+.fa-send,
+.fa-user,
+.fa-user-circle {
+  color: #555451;
+}
+
 blockquote {
 	padding-top: 0px;
 	padding-bottom: 0px;
@@ -39,12 +66,6 @@ blockquote {
     //color: #bbb;
     //color: #929292;
     color: #7D7D7D;
-  }
-
-  .fa-envelope, .fa-envelope-square, .fa-github, .fa-github-square,
-  .fa-google-plus, .fa-google-plus-official, .fa-google-plus-square,
-  .fa-instagram, .fa-send {
-	color: #555451;
   }
 }
 
