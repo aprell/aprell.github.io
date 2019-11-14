@@ -12,9 +12,9 @@ I enjoy programming multi- and manycore processors, especially [weird][Cell]
 [ones][SCC]. I also like programming languages, compilers, and runtime
 systems.
 
-[Here][Papers] is some of the stuff I've worked on over the last years. Since
-2010, I've helped teach a couple of classes on computer architecture,
-introductory programming, and various compiler-related topics.
+[Here][Papers] is some of the stuff I've worked on in the past. Since 2010,
+I've helped teach a couple of classes on computer architecture, introductory
+programming, and various compiler-related topics.
 
 <br>
 
