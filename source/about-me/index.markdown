@@ -8,13 +8,15 @@ sharing:
 
 <img src="wordcloud.png" alt="Word cloud" align="right" width="40%">
 
-I enjoy programming multi- and manycore processors, especially [weird][Cell]
-[ones][SCC]. I also like programming languages, compilers, and runtime
-systems.
+I'm a software engineer working on compiler and runtime support for parallel
+computing.
 
-[Here][Papers] is some of the stuff I've worked on in the past. Since 2010,
-I've helped teach a couple of classes on computer architecture, introductory
-programming, and various compiler-related topics.
+[Here][Papers] is some of the stuff I've done in the past revolving around
+programming multi- and manycore processors, especially [unconventional][Cell]
+[ones][SCC].
+
+These days, I'm interested in all things related to programming languages,
+compilers, and runtime systems.
 
 <br>
 
